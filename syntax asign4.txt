@@ -1,0 +1,18 @@
+Declare
+
+  	mroll number(30);
+	matt number(30);
+	
+Begin 
+	mroll:= &roll;
+	select attendance into matt from stud247 where roll=mroll;
+	if matt<75 then
+	dbms_output.put_line('Term not granted');
+	update stud247 set status ='D ' where roll=mroll;
+	else
+	dbms_output.put_line(' Term granted');
+	update stud247 set status ='ND' where roll=mroll;
+	end if ;
+	End;
+	 
+	
